@@ -1,0 +1,19 @@
+﻿@model IQueryable<Parties>
+<body>
+    <div>
+
+    </div>
+    <div class="text-center">
+        @foreach (Parties entity in Model)
+        {
+            <div>
+                @entity.PartiesName
+            </div>
+        }
+    </div>
+
+</body>
+<li>@Html.ActionLink("Для голосования", "Voting", "Vote")</li>
+
+
+

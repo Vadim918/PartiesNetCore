@@ -1,0 +1,29 @@
+﻿@model Parties.Core.Models.GuestResponse
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voting</title>
+</head>
+<body>
+@using (Html.BeginForm("Voting", "Vote", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
+    @Html.DropDownListFor(x => x.PartiesName, new[] {
+        new SelectListItem() {Text = "New Year", Value = "New Year"},
+        new SelectListItem() {Text = "Christmas", Value = "Christmas"},
+        new SelectListItem() {Text = "Birthday", Value = "Birthday"},
+        new SelectListItem() {Text = "Halloween", Value = "Halloween"}
+    }, "Choose Parties")
+    <p>
+        Will you attend?
+        @Html.DropDownListFor(x => x.WillAttend, new[] {
+            new SelectListItem() {Text = "Yes, I'll be there", Value = bool.TrueString},
+            new SelectListItem() {Text = "No, I can't come", Value = bool.FalseString}
+        }, "Choose an option")
+        <input type="file" name="upload" /><br>
+    </p>
+    <input type="submit" value="Submit RSVP" />
+}
+   
+</body>
+</html>

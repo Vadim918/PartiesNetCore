@@ -1,0 +1,41 @@
+﻿@using Parties.Core.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <style>
+        #mainDiv {
+            border-style: dotted;
+            width: 200px;
+            height: 300px;
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+<div id="mainDiv" style="position: absolute; right: 0; bottom: 0; margin-bottom: 0">
+    <ul>
+        <p>Last viewed parties:</p>
+        @{
+            foreach (var v in Repository.PartiesList)
+            {
+
+                if (v != null)
+                {
+                    <li>@Html.ActionLink(v, "Voting", "Vote")</li>
+                }
+                else
+                {
+                    <li>Нету просмотренных вечеринок</li>
+                }
+
+            }
+
+        }
+    </ul>
+</div>
+@RenderBody()
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Parties.Core.Models.GuestResponse>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    @{
+        foreach (Parties.Core.Models.GuestResponse r in Model)
+        {
+            string path = r.Name + ".jpg";
+            <p>
+                <img height="50" width="60" src="@Url.Content("~/Files/" + path)" alt="" />
+                @r.Name --- @r.WillAttend
+            </p>
+        }
+    }
+</body>
+<li>@Html.ActionLink("Home", "Index", "Home")</li>
