@@ -1,0 +1,52 @@
+﻿@using WebApplicationCore2.Models.Repository
+<!DOCTYPE html>
+<style>
+    .container {
+        position: relative;
+    }
+
+    .topright {
+        position: absolute;
+        top: 8px;
+        right: 16px;
+        font-size: 18px;
+    }
+</style>
+<html>
+
+<body>
+<form asp-controller="Account" asp-action="Login" method="get">
+    <button type="button" class="btn btn-danger">Вход</button>
+</form>
+<div class="container">
+
+    <form asp-controller="Account" asp-action="Logout" method="get">
+        <div class="topright"> <input name="exit" type="submit" value="Выход"></div>
+    </form>
+
+</div>
+
+<div id="mainDiv" style="position: absolute; right: 0; bottom: 0; margin-bottom: 0">
+    <p>Вы вошли как:@User.Identity.Name</p>
+    <p>Last viewed parties:</p>
+    <ul>
+        @{
+            foreach (var v in LayoutRepository.PartiesList)
+            {
+                if (v != null)
+                {
+                    <li>@Html.ActionLink(v, "Voting", "Vote")</li>
+                }
+                else
+                {
+                    <li>Нету просмотренных вечеринок</li>
+                }
+
+            }
+
+        }
+    </ul>
+</div>
+@RenderBody()
+</body>
+</html>

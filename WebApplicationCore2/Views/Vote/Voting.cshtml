@@ -1,0 +1,27 @@
+﻿@model WebApplicationCore2.Models.Domain.GuestResponse
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Voting</title>
+</head>
+<body>
+<div>
+    <div>
+        <form asp-controller="Vote" asp-action="Voting" method="post">
+            <input type="hidden" asp-for="Id" />
+            <div asp-validation-summary="All"></div>
+            <div>
+                <laЬel>Will you attend?</laЬel>
+                <select asp-for="WillAttend">
+                    <option value="">Choose an option</option>
+                    <option value="true">Yes, I'll bе there</option>
+                    <option value="false">No, I can't come</option>
+                </select> 
+            </div>
+            <input type="submit" value="Сохранить" />
+        </form>
+    </div>
+</div>
+</body>
+</html>

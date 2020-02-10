@@ -1,0 +1,18 @@
+﻿@using WebApplicationCore2.Models.Domain
+@model IQueryable<PartiesResponse>
+
+<div>
+    <a asp-controller="Parties" asp-action="PartiesEdit">Новая вечеринка</a>
+</div>
+<div class="text-center">
+    @foreach (PartiesResponse entity in Model)
+    {
+        <div>
+            @entity.PartiesName
+            |
+            <a asp-controller="Parties" asp-action="PartiesEdit" asp-route-id="@entity.Id">Редактировать</a>
+            |
+        </div>
+    }
+</div>
+

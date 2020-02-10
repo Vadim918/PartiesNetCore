@@ -1,0 +1,29 @@
+﻿@model WebApplicationCore2.Models.Domain.PartiesResponse
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddParties</title>
+</head>
+<body>
+
+    <a asp-controller="Parties" asp-action="PartiesEdit">Новая вечеринка</a>
+    <div>
+        <div>
+            <form asp-controller="Parties" asp-action="PartiesEdit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="All"></div>
+                <div>
+                    <label asp-for="PartiesName"></label>
+                    <input asp-for="PartiesName" />
+                    <span asp-validation-for="PartiesName"></span>
+                </div>
+                <input type="submit" value="Сохранить" />
+            </form>
+        </div>
+    </div>
+    @Html.ActionLink("К списку вечеринок", "Index", "Home")
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+﻿@using WebApplicationCore2.Models.Domain
+@model IQueryable<PartiesResponse>
+<body>
+  <div>
+
+   
+
+   </div>
+    <div class="text-center">
+        @foreach (PartiesResponse entity in Model)
+         {
+             <div>
+                 @entity.PartiesName
+                 |
+                    <form method="post" asp-controller="Home" asp-action="Index">
+                     <input type="hidden" name="PartiesName" value="@entity.PartiesName"/>
+                     <input type="submit" value="Просмотр вечеринки"/>
+                    </form>
+                 |
+             </div>
+         }
+        @Html.ActionLink("Parties Edit","AllParties","Parties")
+       
+    </div>
+
+</body>

@@ -1,0 +1,25 @@
+﻿@using WebApplicationCore2.Models.Domain
+@model IEnumerable<User>
+@using WebApplicationCore2.Models.Repository
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Participants</title>
+</head>
+<body>
+    @{
+        foreach (User r in Model)
+        {
+            string path = r.Name + ".jpg";
+            <p>
+                <img height="50" width="60" src="@Url.Content("~/Files/" + path)" alt="" />
+                @r.Name --- Идёт
+            </p>
+        }
+    }
+</body>
+</html>
